@@ -32,7 +32,7 @@
                 <form action="logout.php" method="post">
                     <input type="submit" value="LOGOUT">
                 </form>
-                <form action="deleteAccount.php" method="post">
+                <form action="deleteAccount.php" method="post" onsubmit="return confirm('Are you sure you want to delete your account?');">
                     <input type="submit" value="DELETE ACCOUNT">
                 </form>
 				<!-- <p>Don't have an Account? <a href="#"> Login Now!</a></p> -->

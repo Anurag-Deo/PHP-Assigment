@@ -12,15 +12,12 @@ $conn = new mysqli($servername, $username, $password, $database);
 
 
 $email = $_SESSION['email'];
+$todelete = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
         $sql = "delete from users where email = '$email'";
         $result = $conn->query($sql);
-        // if ($result === TRUE) {
             if ($result === TRUE) {
-                // output data of each row
-                // while($row = $result->fetch_assoc()) {
                     $_SESSION['email'] = "";
                     $_SESSION['first_name'] = "";
                     $_SESSION['last_name'] = "";
@@ -29,13 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header("Location: http://localhost/assignment/signup.html");
 
                   
-                // }
               } else {
                 echo "Internal Server Error";
               }
-            // echo "New record created successfully";
-        //   }
-            //You need to redirect
             exit();
            
       
