@@ -15,8 +15,8 @@ $email = $_SESSION['email'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-
-        $sql = "update users set first_name = '$first_name', last_name = '$last_name', password = '$password' where email = '$email'";
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $sql = "update users set first_name = '$first_name', last_name = '$last_name', password = '$hashed_password' where email = '$email'";
         if ($conn->query($sql) === TRUE) {
             // echo "New record created successfully";
             $_SESSION['email'] = $email;
